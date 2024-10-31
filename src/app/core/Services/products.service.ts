@@ -14,6 +14,10 @@ import type { Favorite } from '../constants/Interfaces/Favorites';
 })
 export class ProductsService {
   private api_url = environment.api_Url + 'Products/'; 
+  private apii_url = environment.api_Url + 'Products'; 
+  private basket_url = 'https://localhost:7248/api/Basket/Delete-Product/'
+
+
   public FavProduct = new BehaviorSubject<number>(0)
   public trigger = new BehaviorSubject<boolean>(false)
 
@@ -46,6 +50,19 @@ export class ProductsService {
 
     
   }
+
+
+  DeleteProdcut(id: number):Observable<boolean>{ 
+
+    return this.http.post<boolean>(this.api_url,id ,{ headers: this.Headers() })
+
+
+  }
+
+
+  GetAllPurchasedProducts(): Observable<Product[]> {
+    return this.http.get<Product[]>(`${this.apii_url}/Get-All-PurchasedProducts`, { headers: this.Headers() });
+}
 
   getproductbyid(id: string) : Observable<Product>{
     return this.http.post<Product>(this.api_url + 'Get-All-Products' , id); 
@@ -95,6 +112,11 @@ export class ProductsService {
 
   FilterProducts(FilterProducts : any){
     return this.http.post<any>(this.api_url + 'GetFiltered-Products' , FilterProducts )
+  }
+
+
+  GetAllFavorites(){
+    return this.http.get<Product[]>(this.api_url+ 'Get-All-Favorite-Products',{ headers: this.Headers() })
   }
 
 

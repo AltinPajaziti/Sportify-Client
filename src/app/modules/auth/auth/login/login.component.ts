@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { BehaviorSubject } from 'rxjs';
 import { AuthenticationService } from 'src/app/core/Services/authentication.service';
 import type { LoginUser } from 'src/app/core/constants/Interfaces/LoginUser'; // Import `LoginUser` as a type
 import Swal from 'sweetalert2';
@@ -14,7 +15,7 @@ import Swal from 'sweetalert2';
 export class LoginComponent {
 
   form!: FormGroup;
-
+ 
   constructor(
     private fb: FormBuilder,
     private auth: AuthenticationService,
@@ -47,6 +48,8 @@ export class LoginComponent {
         localStorage.setItem('Username', response.username);
         localStorage.setItem('Token', response.token);
         localStorage.setItem('Role', response.role);
+        this.auth.isloggedin.next(true)
+
 
         // Navigate to home (or another desired route)
         this.router.navigate(['']);

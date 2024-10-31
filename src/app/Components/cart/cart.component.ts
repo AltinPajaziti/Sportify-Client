@@ -12,6 +12,7 @@ interface Product {
   price: string;
   photo: string;
   quantity: number;
+  IsPurchased? : boolean
 }
 
 
@@ -44,18 +45,13 @@ export class CartComponent {
   }
 
   DeleteItem(id: number) {
-    console.log(id);
-  
     Swal.fire({
-      title: "Are you sure?",
-      text: "You won't be able to revert this!",
-      icon: "warning",
-      showCancelButton: true,
-      confirmButtonColor: "#3085d6",
-      cancelButtonColor: "#d33",
-      confirmButtonText: "Yes, delete it!"
-    }).then((result) => {
-      if (result.isConfirmed) {
+      position: "top",
+      icon: "success",
+      title: "Product bought Successfully",
+      showConfirmButton: false,
+      timer: 1500
+    })
         const shporta = localStorage.getItem("Shporta");
         const basket: Product[] = JSON.parse(shporta || "[]");
   
@@ -64,16 +60,51 @@ export class CartComponent {
         localStorage.setItem("Shporta", JSON.stringify(updatedBasket));
 
         Swal.fire({
-          title: "Deleted!",
-          text: "Your item has been deleted.",
+          title: "Deleted",
+          text: "Your item has been Deleted succesfully.",
           icon: "success"
         });
         this.dataSource = updatedBasket;
         this.Cart.getItems()
         
       }
-    });
-  }
+    
+
+      Delete(id: number) {
+        Swal.fire({
+          title: "Are you sure?",
+          text: "You won't be able to revert this!",
+          icon: "warning",
+          showCancelButton: true,
+          confirmButtonColor: "#3085d6",
+          cancelButtonColor: "#d33",
+          confirmButtonText: "Yes, delete it!"
+        }).then((result) => {
+          if (result.isConfirmed) {
+            // Remove the product from the basket
+            const shporta = localStorage.getItem("Shporta");
+            const basket: Product[] = JSON.parse(shporta || "[]");
+            const updatedBasket = basket.filter((item: Product) => item.id !== id);
+      
+            // Update localStorage and display success notification
+            localStorage.setItem("Shporta", JSON.stringify(updatedBasket));
+            this.dataSource = updatedBasket;
+            this.Cart.getItems();
+    
+            // Show success message after deletion
+            Swal.fire({
+              title: "Deleted",
+              text: "Your item has been deleted successfully.",
+              icon: "success",
+              position: "top",
+              timer: 1500,
+              showConfirmButton: false
+            });
+          }
+        });
+    }
+    
+  
   
 
   BuyNow(id:number){
@@ -81,6 +112,9 @@ export class CartComponent {
 
     const Token = localStorage.getItem("Role");
     if(Token){
+      
+
+      
       let product = this.Cart.GetAllProducts().subscribe({
         next : Response =>{
           const product = Response[0]; 
@@ -93,16 +127,24 @@ export class CartComponent {
           )
         }
       })
+      Swal.fire({
+        position: "top",
+        icon: "success",
+        title: "Product bought Successfully",
+        showConfirmButton: false,
+        timer: 1500
+      });
 
+      this.DeleteItem(id)
       
       // this.Cart.addToBasket()
-    Swal.fire({
-      position: "top",
-      icon: "success",
-      title: "Successfully Purchased",
-      showConfirmButton: false,
-      timer: 1500
-    });
+    // Swal.fire({
+    //   position: "top",
+    //   icon: "success",
+    //   title: "Successfully Purchased",
+    //   showConfirmButton: false,
+    //   timer: 1500
+    // });
   }
 
   else{

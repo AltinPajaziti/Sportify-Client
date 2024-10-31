@@ -4,6 +4,7 @@ import { ProductsService } from 'src/app/core/Services/products.service';
 import { Product } from 'src/app/core/constants/Interfaces/Product'; 
 import { Subscription } from 'rxjs';
 import { CartService } from 'src/app/core/Services/cart.service';
+import  { AuthenticationService } from 'src/app/core/Services/authentication.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -19,11 +20,19 @@ export class DashboardComponent implements OnInit{
   public totalFavorites = 0;
   private subscription: Subscription = new Subscription();
   public Login: any = null
+  public isloogediin! : boolean
 
-
-  constructor(public productsService: ProductsService ,private cartService: CartService ) { }
+  constructor(public productsService: ProductsService ,private cartService: CartService,private auth : AuthenticationService  ) { }
 
   ngOnInit(): void {
+    if(localStorage.getItem('Role')){
+      this.isloogediin = true
+    }
+    this.auth.loggedinholder.subscribe({
+      next : Response =>{
+        this.isloogediin = Response
+      }
+    })
     this.totalFavorites = this.productsService.FavProduct.value
     if(this.productsService.trigger){
       this.productsService.GetCount().subscribe({
@@ -34,6 +43,8 @@ export class DashboardComponent implements OnInit{
       
 
     }
+
+   
    let  images = [944, 1011, 984].map((n) => `https://picsum.photos/id/${n}/900/500`);
     this.LatestProducts();
 
@@ -55,8 +66,8 @@ export class DashboardComponent implements OnInit{
       })
     );
   }
-  AddToFav(){
-    
+  logout(){
+    this.auth.Logout();
   }
 
   

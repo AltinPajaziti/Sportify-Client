@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { environment } from 'src/environments/envirement';
@@ -32,6 +32,9 @@ export class CartService {
     return this.Products.asObservable();
   }
 
+
+  
+
   getItems() {
     const shporta = localStorage.getItem("Shporta");
 
@@ -51,9 +54,30 @@ export class CartService {
   public BuyProduct(Product: Product){
     const headers = this.Auth.Headers(); 
       return this.Http.post<Product>(this.api_url +'Add-Product' , Product,{headers: headers} )
+
+      
     
     
   }
+
+  Headers():HttpHeaders{
+  
+
+    const  token = localStorage.getItem('Token')
+    return new HttpHeaders({
+      'Authorization' : `bearer ${token}`
+    })
+
+    
+  }
+
+
+  public DeleteProduct(productId: number) {
+    console.log(`${this.api_url}Delete-Product/${productId}`, )
+    return this.Http.delete<any>(`${this.api_url}Delete-Product/${productId}` ,{headers : this.Headers()} );
+    
+}
+
 
   public addToBasket(data: Product, quantity: number) {
     let basket: Product[] = JSON.parse(localStorage.getItem('Shporta') || '[]');

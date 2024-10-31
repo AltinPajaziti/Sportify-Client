@@ -2,7 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { LoginUser } from '../constants/Interfaces/LoginUser';
 import { environment } from 'src/environments/envirement';
 import { Register } from '../constants/Interfaces/Register';
-import { catchError, type Observable } from 'rxjs';
+import { BehaviorSubject, catchError, type Observable } from 'rxjs';
 import { Router } from '@angular/router';
 import { Injectable } from '@angular/core';
 import Swal from 'sweetalert2';
@@ -21,8 +21,15 @@ interface RegisterDto {
 export class AuthenticationService {
 
   private ap_url = environment.api_Url + 'Authentication/';
+  public isloggedin = new BehaviorSubject<boolean>(false);
 
-  constructor(private http: HttpClient, private router: Router) {} 
+  public loggedinholder = this.isloggedin.asObservable();
+  constructor(private http: HttpClient, private router: Router) {
+    const token = localStorage.getItem('Token');
+    if (token) {
+      this.isloggedin.next(true);
+    }
+  } 
 
   login(username: string, password: string): Observable<LoginUser> {
     return this.http.post<LoginUser>(`${this.ap_url}Login`, { username, password }).pipe(
@@ -49,7 +56,8 @@ export class AuthenticationService {
     localStorage.removeItem('Username');
     localStorage.removeItem('Token');
     localStorage.removeItem('Role');
-    this.router.navigate(['/login']);
+    // this.router.navigate(['/login']);
+    this.isloggedin.next(false)
   }
 
   Register(register : RegisterDto){

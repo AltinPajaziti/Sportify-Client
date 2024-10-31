@@ -2,6 +2,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { CartService } from 'src/app/core/Services/cart.service';
 import { Subscription } from 'rxjs';
 import { Router } from '@angular/router';
+import  { AuthenticationService } from 'src/app/core/Services/authentication.service';
 @Component({
   selector: 'app-main-layout-component',
   templateUrl: './main-layout-component.component.html',
@@ -9,11 +10,18 @@ import { Router } from '@angular/router';
 })
 export class MainLayoutComponentComponent implements OnInit, OnDestroy {
   public totalQuantity = 0;
+  public isloogediin  = false
   private subscription: Subscription = new Subscription();
 
-  constructor(private cartService: CartService ,public router : Router) {}
+  constructor(private cartService: CartService ,public router : Router , private auth:AuthenticationService) {}
 
   ngOnInit(): void {
+
+    this.auth.loggedinholder.subscribe({
+      next : Response =>{
+        this.isloogediin = Response
+      }
+    })
     const shporta = localStorage.getItem("Shporta");
 
   
@@ -30,6 +38,9 @@ export class MainLayoutComponentComponent implements OnInit, OnDestroy {
         }
       })
     );
+  }
+  logout(){
+    this.auth.Logout();
   }
   navigateToCart(){
     this.router.navigate(['Cart']);

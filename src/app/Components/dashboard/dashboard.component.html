@@ -33,6 +33,8 @@
               <span>Cart</span>
             </div>
           </mat-list-item>
+
+          
           <mat-list-item>
             <div class="smallcontainer">
               <span>Favorite Items</span>
@@ -92,11 +94,17 @@
         <mat-icon [matBadge]="totalQuantity" matBadgeOverlap="false" class="demo-section"  routerLink="Cart" >shopping_cart</mat-icon>
       </button>
 
+      <button mat-icon-button [routerLink]="['/PurchasedProducts']">
+        
+        <mat-icon  [matBadge]="totalQuantity" matBadgeOverlap="false" class="demo-section" 
+        >description</mat-icon>
+      </button>
+
       <button  mat-button [matMenuTriggerFor]="menu" ><mat-icon>person</mat-icon></button>
       <mat-menu #menu="matMenu">
-
-        <button  mat-menu-item [routerLink]="['/auth/login']" >Login</button>
-        <button  mat-menu-item  [routerLink]="['/auth/register']">Register</button>
+        <button *ngIf="isloogediin"  mat-menu-item (click)="logout()">Logout</button>
+        <button *ngIf="!isloogediin"  mat-menu-item [routerLink]="['/auth/login']" >Login</button>
+        <button  *ngIf="!isloogediin" mat-menu-item  [routerLink]="['/auth/register']">Register</button>
 
 
       </mat-menu>

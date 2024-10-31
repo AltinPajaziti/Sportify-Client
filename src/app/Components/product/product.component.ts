@@ -10,7 +10,7 @@ import Swal from 'sweetalert2';
 import { JsonPipe } from '@angular/common';
 
 export interface DialogData {
-  name: string, 
+  input: string, 
         description :  string, 
         price :  string, 
         photo :  string, 

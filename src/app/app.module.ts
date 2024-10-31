@@ -31,6 +31,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FavoriteProductsComponent } from './Components/favorite-products/favorite-products.component';
+import { PurchasedProductsComponent } from './Components/purchased-products/purchased-products.component';
 
 
 @NgModule({
@@ -44,6 +45,7 @@ import { FavoriteProductsComponent } from './Components/favorite-products/favori
     ProductDialogComponent,
     CartComponent,
     FavoriteProductsComponent,
+    PurchasedProductsComponent,
     
   ],
   imports: [
