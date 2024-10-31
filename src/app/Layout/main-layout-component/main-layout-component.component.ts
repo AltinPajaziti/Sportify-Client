@@ -12,6 +12,8 @@ export class MainLayoutComponentComponent implements OnInit, OnDestroy {
   public totalQuantity = 0;
   public isloogediin  = false
   private subscription: Subscription = new Subscription();
+  public totalFavorites = 0;
+
 
   constructor(private cartService: CartService ,public router : Router , private auth:AuthenticationService) {}
 

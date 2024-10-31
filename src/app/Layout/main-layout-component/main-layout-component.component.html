@@ -78,14 +78,17 @@
           <mat-icon>category  </mat-icon>
           <span>Products</span>
         </button>
-        <mat-icon >
-         favorite
-        </mat-icon>
-      <button mat-icon-button [routerLink]="['/Cart']">
-        
-        <mat-icon  [matBadge]="totalQuantity" matBadgeOverlap="false" class="demo-section" 
-        >shopping_cart</mat-icon>
-      </button>
+        <mat-icon [routerLink]="['/Favorite']" style="cursor: pointer;" [matBadge]="totalFavorites">favorite</mat-icon>
+       
+        <button mat-icon-button routerLink="Cart">
+          <mat-icon [matBadge]="totalQuantity" matBadgeOverlap="false" class="demo-section"  routerLink="Cart" >shopping_cart</mat-icon>
+        </button>
+  
+        <button mat-icon-button [routerLink]="['/PurchasedProducts']">
+          
+          <mat-icon  matBadgeOverlap="false" class="demo-section" 
+          >description</mat-icon>
+        </button>
 
 
       <button mat-icon-button [routerLink]="['/Cart']">
