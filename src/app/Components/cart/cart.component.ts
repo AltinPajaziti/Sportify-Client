@@ -117,8 +117,12 @@ export class CartComponent {
       
       let product = this.Cart.GetAllProducts().subscribe({
         next : Response =>{
+          console.log("Respounsi" , Response)
           const product = Response[0]; 
-          this.Cart.BuyProduct(product  ).subscribe({
+          console.log("produkti" , product)
+          console.log(typeof product)
+
+          this.Cart.BuyProduct(product).subscribe({
             next : Response=>{
               console.log(Response)
             }

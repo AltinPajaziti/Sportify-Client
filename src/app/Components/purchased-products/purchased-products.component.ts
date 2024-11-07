@@ -11,7 +11,7 @@ import Swal from 'sweetalert2';
   styleUrls: ['./purchased-products.component.css']
 })
 export class PurchasedProductsComponent {
-  displayedColumns: string[] = ['Image', 'ProductName','Description', 'Quantity' , 'Price'  , 'DeleteButton'];
+  displayedColumns: string[] = ['Image', 'ProductName','Description' , 'Price'  , 'DeleteButton'];
   public dataSource! : Product[];
 
 

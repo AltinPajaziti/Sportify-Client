@@ -3,6 +3,7 @@ import { CartService } from 'src/app/core/Services/cart.service';
 import { Subscription } from 'rxjs';
 import { Router } from '@angular/router';
 import  { AuthenticationService } from 'src/app/core/Services/authentication.service';
+import { ProductsService } from 'src/app/core/Services/products.service';
 @Component({
   selector: 'app-main-layout-component',
   templateUrl: './main-layout-component.component.html',
@@ -15,7 +16,7 @@ export class MainLayoutComponentComponent implements OnInit, OnDestroy {
   public totalFavorites = 0;
 
 
-  constructor(private cartService: CartService ,public router : Router , private auth:AuthenticationService) {}
+  constructor(private cartService: CartService ,public router : Router , private auth:AuthenticationService , private productService : ProductsService) {}
 
   ngOnInit(): void {
 
@@ -25,6 +26,13 @@ export class MainLayoutComponentComponent implements OnInit, OnDestroy {
       }
     })
     const shporta = localStorage.getItem("Shporta");
+
+    this.productService.getFavProdCount().subscribe({
+      next : Response => {
+        this.totalFavorites = Response
+      }
+     })
+    
 
   
     const storedQuantity = localStorage.getItem('totalQuantity');

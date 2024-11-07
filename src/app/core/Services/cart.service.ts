@@ -4,7 +4,7 @@ import { BehaviorSubject, Observable } from 'rxjs';
 import { environment } from 'src/environments/envirement';
 import  { AuthenticationService } from './authentication.service';
 
-interface Product {
+ interface Product {
   id: number;
   name: string;
   description: string;
@@ -22,7 +22,7 @@ export class CartService {
   public itemCount$ = this.productCount.asObservable();
   private api_url = environment.api_Url + 'Basket/' 
   private products: Product[] = []; // Changed to a regular array
-  public Products = new BehaviorSubject<Product[]>([]);
+  public Products = new BehaviorSubject<any[]>([]);
 
   constructor(private Http : HttpClient ,public Auth : AuthenticationService) {
     this.getItems();
@@ -36,7 +36,7 @@ export class CartService {
   
 
   getItems() {
-    const shporta = localStorage.getItem("Shporta");
+    const shporta = localStorage.getItem("zz");
 
     if (shporta) {
       const basket: Product[] = JSON.parse(shporta);
@@ -79,7 +79,7 @@ export class CartService {
 }
 
 
-  public addToBasket(data: Product, quantity: number) {
+  public addToBasket(data: any, quantity: number) {
     let basket: Product[] = JSON.parse(localStorage.getItem('Shporta') || '[]');
 
     if (!Array.isArray(basket)) {

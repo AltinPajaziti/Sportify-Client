@@ -38,8 +38,17 @@ export class ProductsService {
   getProducts(): Observable<Product[]> {
     return this.http.get<Product[]>(this.api_url + 'Get-All-Products'); 
   }
+
+  getFavProdCount() : Observable<any>{
+    return this.http.get<any>(this.api_url + 'Get-favorite-count')
+  }
   
-  
+
+  deleteFavProduct(productId: number): Observable<any> {
+    const url = `${this.api_url}Remove-fav-product/${productId}`; 
+    return this.http.delete<any>(url);
+}
+
   Headers():HttpHeaders{
   
 

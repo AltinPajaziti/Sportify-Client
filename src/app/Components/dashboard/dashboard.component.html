@@ -35,11 +35,7 @@
           </mat-list-item>
 
           
-          <mat-list-item>
-            <div class="smallcontainer">
-              <span>Favorite Items</span>
-            </div>
-          </mat-list-item>
+        
           <mat-list-item>
             <div class="smallcontainer">
               <mat-icon>person</mat-icon>
@@ -76,6 +72,7 @@
       <button mat-icon-button (click)="sidenav.toggle()" aria-label="Toggle sidenav">
         <mat-icon>menu</mat-icon>
       </button>
+      <mat-icon>shopping_cart</mat-icon>
       <span routerLink="" style="cursor: pointer;">Sportify</span>
       <span class="example-spacer"></span>
     
@@ -88,7 +85,6 @@
           <span>Products</span>
           
         </button>
-        <mat-icon [routerLink]="['/Favorite']" style="cursor: pointer;" [matBadge]="totalFavorites">favorite</mat-icon>
        
       <button mat-icon-button routerLink="Cart">
         <mat-icon [matBadge]="totalQuantity" matBadgeOverlap="false" class="demo-section"  routerLink="Cart" >shopping_cart</mat-icon>

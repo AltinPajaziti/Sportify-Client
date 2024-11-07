@@ -33,6 +33,9 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { FavoriteProductsComponent } from './Components/favorite-products/favorite-products.component';
 import { PurchasedProductsComponent } from './Components/purchased-products/purchased-products.component';
 
+import {FormsModule} from '@angular/forms';
+
+
 
 @NgModule({
   declarations: [
@@ -46,6 +49,7 @@ import { PurchasedProductsComponent } from './Components/purchased-products/purc
     CartComponent,
     FavoriteProductsComponent,
     PurchasedProductsComponent,
+    
     
   ],
   imports: [

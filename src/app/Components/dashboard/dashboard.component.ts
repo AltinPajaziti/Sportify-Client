@@ -33,7 +33,11 @@ export class DashboardComponent implements OnInit{
         this.isloogediin = Response
       }
     })
-    this.totalFavorites = this.productsService.FavProduct.value
+   this.productsService.getFavProdCount().subscribe({
+    next : Response => {
+      this.totalFavorites = Response
+    }
+   })
     if(this.productsService.trigger){
       this.productsService.GetCount().subscribe({
         next: Response =>{
