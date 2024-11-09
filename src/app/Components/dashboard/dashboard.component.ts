@@ -20,13 +20,16 @@ export class DashboardComponent implements OnInit{
   public totalFavorites = 0;
   private subscription: Subscription = new Subscription();
   public Login: any = null
-  public isloogediin! : boolean
+  public isloogediin! : boolean;
+  public totalpurchedprod : any;
 
   constructor(public productsService: ProductsService ,private cartService: CartService,private auth : AuthenticationService  ) { }
 
   ngOnInit(): void {
     if(localStorage.getItem('Role')){
       this.isloogediin = true
+
+
     }
     this.auth.loggedinholder.subscribe({
       next : Response =>{
@@ -36,6 +39,17 @@ export class DashboardComponent implements OnInit{
    this.productsService.getFavProdCount().subscribe({
     next : Response => {
       this.totalFavorites = Response
+    }
+
+    
+   })
+
+
+
+   this.productsService.getpourched().subscribe({
+    next : Response =>{
+      console.log("ejo ziki" , Response)
+      this.totalpurchedprod = Response
     }
    })
     if(this.productsService.trigger){

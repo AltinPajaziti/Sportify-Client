@@ -9,14 +9,13 @@
 
     
     <mat-form-field>
-      <mat-label>Cars</mat-label>
-      <select matNativeControl required>
-        <option value="volvo">Volvo</option>
-        <option value="saab">Saab</option>
-        <option value="mercedes">Mercedes</option>
-        <option value="audi">Audi</option>
+      <mat-label>Category</mat-label>
+      <select matNativeControl required  formControlName="Categoryid">
+        <option ></option>
+        <option *ngFor="let cate of Category" [value]="cate.id">{{cate.name}}</option>
       </select>
     </mat-form-field>
+    
     <!-- Location Dropdown -->
     <!-- <mat-form-field appearance="fill" class="full-width">
       <mat-label>Location</mat-label>

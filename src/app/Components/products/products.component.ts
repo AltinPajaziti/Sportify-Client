@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Product } from 'src/app/core/constants/Interfaces/Product';
+import  { CategoryService } from 'src/app/core/Services/category.service';
 import { ProductsService } from 'src/app/core/Services/products.service';
 
 @Component({
@@ -9,25 +10,48 @@ import { ProductsService } from 'src/app/core/Services/products.service';
   styleUrls: ['./products.component.css'],
 })
 export class ProductsComponent implements OnInit {
-  Products: any[] = []; // Use specific type for products
+  Products: any[] = []; 
   Forma!: FormGroup;
+  Category! : any;
 
-  constructor(public productService: ProductsService, private fb: FormBuilder) {
+  constructor(public productService: ProductsService, private fb: FormBuilder , private categoryservice : CategoryService) {
     this.GetallProducts();
   }
 
   ngOnInit(): void {
     this.Forma = this.fb.group({
       Input: [''],
+      Categoryid : [''],
       PriceFrom: [0],
       PriceTo: [0],
     });
+
+    this.GetAllcategory()
+
+    this.productService.GetCategoryid().subscribe({
+      next: Response=>{
+
+        console.log("Respounsi" ,Response[1] )
+       
+        this.Forma.get('Categoryid')?.patchValue(Response[1]);
+
+
+        console.log(this.Forma.value)
+
+          this.productService.FilterProducts(this.Forma.value).subscribe({
+           next : Response=>{
+            this.Products = Response
+           }
+          })
+      }
+    })
   }
 
   GetallProducts(Produktet: any[]| null  = null) {
     if (Produktet == null) {
       this.productService.getProducts().subscribe({
-        next: (response: Product[]) => {
+        next: (response: any[]) => {
+
           this.Products = response;
           console.log("Here", this.Products);
         },
@@ -53,5 +77,20 @@ export class ProductsComponent implements OnInit {
         console.error('Error filtering products:', err);
       }
     });
+  }
+
+
+
+  GetAllcategory(){
+
+    this.categoryservice.GetCategoryAll().subscribe(
+      {
+        next : Response=>{
+          console.log(Response)
+           this.Category = Response
+        }
+      }
+    )
+
   }
 }

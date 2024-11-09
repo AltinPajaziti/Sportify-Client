@@ -1,8 +1,8 @@
 <ng-container *ngIf="images">
     <ngb-carousel>
         <ng-template ngbSlide>
-            <div class="picsum-img-wrapper">
-                <img [src]="images[0]" alt="Random first slide" />
+            <div class="picsum-img-wrapper" >
+                <img [src]="images[0].src" alt="Random first slide" (click)="Getfilteredproducts(images[0].Categoryid)" />
             </div>
             <div class="carousel-caption">
                 <h3>First slide label</h3>
@@ -11,7 +11,7 @@
         </ng-template>
         <ng-template ngbSlide>
             <div class="picsum-img-wrapper">
-                <img [src]="images[1]" alt="Random second slide" />
+                <img [src]="images[1].src" alt="Random second slide"  (click)="Getfilteredproducts(images[1].Categoryid)"/>
             </div>
             <div class="carousel-caption">
                 <h3>Second slide label</h3>
@@ -20,7 +20,7 @@
         </ng-template>
         <ng-template ngbSlide>
             <div class="picsum-img-wrapper">
-                <img [src]="images[2]" alt="Random third slide" />
+                <img [src]="images[2].src" alt="Random third slide" (click)="Getfilteredproducts(images[2].Categoryid)" />
             </div>
             <div class="carousel-caption">
                 <h3>Third slide label</h3>

@@ -6,7 +6,8 @@ export interface Product {
     gId? : string,
     id : number,
     insertedby? : string,
-    lastModified? : string
+    lastModified? : string,
+    categoryid : string
 
 
 

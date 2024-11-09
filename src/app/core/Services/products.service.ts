@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable } from 'rxjs'; 
+import { BehaviorSubject, combineLatest, Observable } from 'rxjs'; 
 import { Product } from '../constants/Interfaces/Product';
 import { HttpClient, HttpHeaders } from '@angular/common/http'; 
 import { environment } from 'src/environments/envirement';
@@ -15,7 +15,11 @@ import type { Favorite } from '../constants/Interfaces/Favorites';
 export class ProductsService {
   private api_url = environment.api_Url + 'Products/'; 
   private apii_url = environment.api_Url + 'Products'; 
-  private basket_url = 'https://localhost:7248/api/Basket/Delete-Product/'
+  private basket_url = 'https://localhost:7248/api/Basket/Delete-Product/';
+
+
+  public triggerthefiltering  = new BehaviorSubject<boolean>(false);
+  public Categoryid = new BehaviorSubject<any>(null);
 
 
   public FavProduct = new BehaviorSubject<number>(0)
@@ -35,20 +39,17 @@ export class ProductsService {
     return this.FavProduct.asObservable()
   }
 
-  getProducts(): Observable<Product[]> {
-    return this.http.get<Product[]>(this.api_url + 'Get-All-Products'); 
+  public GetCategoryid(): Observable<any> {
+    return combineLatest([this.triggerthefiltering.asObservable(), this.Categoryid.asObservable()]);
+  }
+
+  getProducts(): Observable<any[]> {
+    return this.http.get<any[]>(this.api_url + 'Get-All-Products'); 
   }
 
   getFavProdCount() : Observable<any>{
     return this.http.get<any>(this.api_url + 'Get-favorite-count')
   }
-  
-
-  deleteFavProduct(productId: number): Observable<any> {
-    const url = `${this.api_url}Remove-fav-product/${productId}`; 
-    return this.http.delete<any>(url);
-}
-
   Headers():HttpHeaders{
   
 
@@ -59,6 +60,18 @@ export class ProductsService {
 
     
   }
+
+
+  getpourched() : Observable<any>{
+    return this.http.get<any>(this.api_url + 'Getpurchedcount',{headers : this.Headers()})
+  }
+  
+
+  deleteFavProduct(productId: number): Observable<any> {
+    const url = `${this.api_url}Remove-fav-product/${productId}`; 
+    return this.http.delete<any>(url);
+}
+
 
 
   DeleteProdcut(id: number):Observable<boolean>{ 
