@@ -119,6 +119,7 @@ export class CartComponent {
         next : Response =>{
           console.log("Respounsi" , Response)
           const product = Response[0]; 
+        
           console.log("produkti" , product)
           console.log(typeof product)
 

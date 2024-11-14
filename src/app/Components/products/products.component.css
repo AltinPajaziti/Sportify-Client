@@ -1,25 +1,91 @@
+/* Grid container for products */
 .products-container app-product {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr); /* 3 columns */
-    grid-gap: 2px; /* Gap between grid items */
-  }
-  
-  .product-tile {
-    background: lightblue;
-    padding: 16px;
-    border-radius: 8px;
-    text-align: center;
-  }
-form{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 15px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 columns */
+  gap: 16px; /* Increased gap between grid items */
+  margin-top: 20px; /* Space between filter and products */
 }
 
+/* Style for individual product tile */
+.product-tile {
+  background: #f0f8ff; /* Light background for products */
+  padding: 16px;
+  border-radius: 8px;
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Soft shadow */
+  transition: transform 0.3s ease; /* Smooth hover effect */
+}
 
-.container mat-form-field{
-  margin-top: 15px;
- 
+.product-tile:hover {
+  transform: translateY(-5px); /* Slight lift effect on hover */
+}
 
+/* Container for the filters */
+.container {
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;
+  margin-bottom: 30px; /* Space between the form and product grid */
+  align-items: center;
+}
+
+/* Form styling */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-width: 400px;
+  padding: 20px;
+  border: 1px solid #ddd; 
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Soft shadow */
+  background-color: #fff; /* Ensure form has a white background */
+  margin-top:15px ;
+}
+
+.mat-form-field {
+  width: 100%; /* Ensure form fields take up full width */
+  margin-bottom: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+/* Price filter container */
+.price-filter-container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.mat-form-field .mat-input-element {
+  padding: 8px; /* Padding for input fields */
+}
+
+/* Button styling */
+button {
+  width: 100%;
+  padding: 10px;
+  background-color: #007bff; /* Primary button color */
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #0056b3; /* Darker shade on hover */
+}
+
+/* Responsive behavior */
+@media (max-width: 768px) {
+  .products-container app-product {
+    grid-template-columns: repeat(2, 1fr); /* 2 columns on smaller screens */
+  }
+
+  .container {
+    flex-direction: column;
+    align-items: center;
+  }
 }

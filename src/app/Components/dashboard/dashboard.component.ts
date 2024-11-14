@@ -98,7 +98,7 @@ export class DashboardComponent implements OnInit{
           console.log(e)
         });
         
-        this.latestproduct = Respounse.splice(0, 4)
+        this.latestproduct = Respounse.splice(0, 5)
 
       }
     })

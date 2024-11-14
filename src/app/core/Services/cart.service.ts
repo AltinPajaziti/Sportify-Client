@@ -11,6 +11,8 @@ import  { AuthenticationService } from './authentication.service';
   price: string;
   photo: string;
   quantity: number;
+  Categoryid : number
+
 }
 
 @Injectable({
