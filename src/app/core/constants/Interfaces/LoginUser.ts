@@ -3,4 +3,6 @@
     token : string,
     status : string
     role : string
+    refreshToken:string
+    tokenExpires: string
  }

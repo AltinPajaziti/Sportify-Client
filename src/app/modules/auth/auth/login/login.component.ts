@@ -48,6 +48,9 @@ export class LoginComponent {
         localStorage.setItem('Username', response.username);
         localStorage.setItem('Token', response.token);
         localStorage.setItem('Role', response.role);
+        localStorage.setItem('Refreshtoken' , response.refreshToken);
+        localStorage.setItem('TokenExpires', response.tokenExpires);
+
         this.auth.isloggedin.next(true)
 
 

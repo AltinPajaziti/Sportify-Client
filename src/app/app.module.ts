@@ -5,7 +5,7 @@ import {MatSelectModule} from '@angular/material/select';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { DashboardComponent } from './Components/dashboard/dashboard.component';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon';
@@ -34,6 +34,7 @@ import { FavoriteProductsComponent } from './Components/favorite-products/favori
 import { PurchasedProductsComponent } from './Components/purchased-products/purchased-products.component';
 
 import {FormsModule} from '@angular/forms';
+import { AuthInterceptorService } from './core/Services/auth.interceptor.service';
 
 
 
@@ -81,7 +82,13 @@ import {FormsModule} from '@angular/forms';
       
       
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptorService,
+      multi: true  
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
