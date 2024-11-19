@@ -22,11 +22,13 @@ export class DashboardComponent implements OnInit{
   public Login: any = null
   public isloogediin! : boolean;
   public totalpurchedprod : any;
+  public Role:any;
 
   constructor(public productsService: ProductsService ,private cartService: CartService,private auth : AuthenticationService  ) { }
 
   ngOnInit(): void {
     if(localStorage.getItem('Role')){
+      this.Role = localStorage.getItem('Role');
       this.isloogediin = true
 
 

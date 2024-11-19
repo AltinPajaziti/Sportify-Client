@@ -1,7 +1,7 @@
 /* Grid container for products */
 .products-container app-product {
   display: grid;
-  grid-template-columns: repeat(4, 1fr); /* 4 columns */
+  grid-template-columns: repeat(5, 1fr); /* 4 columns */
   gap: 16px; /* Increased gap between grid items */
   margin-top: 20px; /* Space between filter and products */
 }
@@ -22,45 +22,62 @@
 
 /* Container for the filters */
 .container {
+  width: 100%;
   display: flex;
   justify-content: space-between;
   gap: 30px;
   margin-bottom: 30px; /* Space between the form and product grid */
   align-items: center;
+  flex-direction: column;
 }
 
 /* Form styling */
-form {
+/* Form styling */
+.horizontal-form {
   display: flex;
-  flex-direction: column;
-  gap: 20px;
-  max-width: 400px;
-  padding: 20px;
-  border: 1px solid #ddd; 
-  border-radius: 10px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Soft shadow */
-  background-color: #fff; /* Ensure form has a white background */
-  margin-top:15px ;
+  flex-direction: row; /* Horizontal alignment */
+  gap: 16px; /* Space between inputs */
+  align-items: center; /* Align inputs vertically in the row */
+  flex-wrap: wrap; /* Allow wrapping on smaller screens */
+  padding: 16px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  margin-top: 15px;
 }
 
 .mat-form-field {
-  width: 100%; /* Ensure form fields take up full width */
-  margin-bottom: 16px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
+  width: 20%; /* Adjust width for a compact row layout */
+  margin-bottom: 0;
+  box-sizing: border-box;
 }
 
-/* Price filter container */
-.price-filter-container {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
+.mat-form-field input,
+.mat-form-field select {
+  height: 45px; /* Standardized input height */
+  padding: 6px; /* Compact padding */
+  font-size: 14px;
+
 }
 
-.mat-form-field .mat-input-element {
-  padding: 8px; /* Padding for input fields */
+button {
+  height: 36px; /* Match input height */
+  padding: 0 16px;
 }
+
+
+
+
+button:hover {
+  background-color: #0056b3;
+}
+
+
+button:hover {
+  background-color: #0056b3;
+}
+
 
 /* Button styling */
 button {

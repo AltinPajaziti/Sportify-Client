@@ -83,3 +83,63 @@
   width: 250px;
   border-radius: 8px;
  }
+
+
+ /* Layout Container for Sidebar and Products */
+.layout-container {
+  display: flex;
+  min-height: 100vh; /* Full viewport height */
+  gap: 16px; /* Gap between sidebar and products */
+  padding: 16px; /* Padding around the container */
+  background-color: #f9f9f9; /* Light background */
+  box-sizing: border-box;
+}
+
+/* Sidebar for Filters */
+.sidebar {
+  flex: 0 0 300px; /* Fixed width for the sidebar */
+  background: #ffffff; /* White background for filters */
+  border-radius: 8px; /* Smooth edges */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Soft shadow */
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* Filter Form Styling */
+.sidebar form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.sidebar form .mat-form-field {
+  width: 100%; /* Full width for inputs */
+}
+
+.sidebar form button {
+  width: 100%;
+  padding: 10px;
+  background-color: #007bff; /* Button color */
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.sidebar form button:hover {
+  background-color: #0056b3; /* Darker shade on hover */
+}
+
+/* Responsive Layout Adjustments */
+@media (max-width: 768px) {
+  .layout-container {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    flex: 1 0 auto;
+  }
+}

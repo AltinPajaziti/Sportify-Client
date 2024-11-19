@@ -1,49 +1,39 @@
 
 <div class="container">
-
-  <form [formGroup]="Forma" (ngSubmit)="GetFilterData()">
+  <form [formGroup]="Forma" (ngSubmit)="GetFilterData()" class="horizontal-form">
     <!-- General Input Field -->
-    <label >Search Item</label>
-    <mat-form-field appearance="fill" class="full-width">
-      
+    <mat-form-field appearance="fill">
       <mat-label>Input</mat-label>
       <input matInput placeholder="Enter value" formControlName="Input">
     </mat-form-field>
-
+  
     <!-- Category Dropdown -->
-    <label >Category</label>
-
-    <mat-form-field appearance="fill" class="full-width">
-
+    <mat-form-field appearance="fill">
       <mat-label>Category</mat-label>
       <select matNativeControl required formControlName="Categoryid">
         <option></option>
         <option *ngFor="let cate of Category" [value]="cate.id">{{ cate.name }}</option>
       </select>
     </mat-form-field>
-
-    <!-- Price Filter Inputs -->
-    <label >Price From</label>
-
-    <div class="price-filter-container" style="display: flex; flex-direction: column; gap: 25px;">
-      <!-- Price From Input -->
-      <mat-form-field appearance="fill" class="small-input" style="width: 100%;">
-        <mat-label>From</mat-label>
-        <input matInput formControlName="PriceFrom" placeholder="From" type="number">
-      </mat-form-field>
-
-      <!-- Price To Input -->
-       <label>Price To</label>
-      <mat-form-field appearance="fill" class="small-input" style="width: 100%;">
-        <mat-label>To</mat-label>
-        <input matInput formControlName="PriceTo" placeholder="To" type="number">
-      </mat-form-field>
-    </div>
-
+  
+    <!-- Price From Input -->
+    <mat-form-field appearance="fill">
+      <mat-label>From</mat-label>
+      <input matInput formControlName="PriceFrom" placeholder="From" type="number">
+    </mat-form-field>
+  
+    <!-- Price To Input -->
+    <mat-form-field appearance="fill">
+      <mat-label>To</mat-label>
+      <input matInput formControlName="PriceTo" placeholder="To" type="number">
+    </mat-form-field>
+  
     <!-- Submit Button -->
-    <button mat-raised-button color="primary" style="width: 100%;">Filter</button>
+    <button mat-raised-button color="primary" class="small-button" style="width: 230px;">Filter</button>
   </form>
-
+  
+  
+  
   <mat-grid-list cols="3" rowHeight="2:1">
     <div class="products-container">
       <app-product [Produkti]="Products"></app-product>

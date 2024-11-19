@@ -35,6 +35,8 @@ import { PurchasedProductsComponent } from './Components/purchased-products/purc
 
 import {FormsModule} from '@angular/forms';
 import { AuthInterceptorService } from './core/Services/auth.interceptor.service';
+import { PieChartComponent } from './Components/pie-chart/pie-chart.component';
+import { AppMonthlyOrdersChartComponent } from './Components/app-monthly-orders-chart/app-monthly-orders-chart.component';
 
 
 
@@ -50,6 +52,9 @@ import { AuthInterceptorService } from './core/Services/auth.interceptor.service
     CartComponent,
     FavoriteProductsComponent,
     PurchasedProductsComponent,
+    PieChartComponent,
+    AppMonthlyOrdersChartComponent,
+    
     
     
   ],

@@ -33,6 +33,8 @@ export class LoginComponent {
 
     this.auth.login(username, password).subscribe({
       next: (response: LoginUser) => {
+
+        console.log("here is " , response)
         if (response.status !== 'ok') {
           Swal.fire({
             icon: "error",

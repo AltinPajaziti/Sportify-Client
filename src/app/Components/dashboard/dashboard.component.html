@@ -67,7 +67,7 @@
 
   
   <!-- Main content with toolbar -->
-  <mat-sidenav-content>
+  <mat-sidenav-content >
     <mat-toolbar class="mat-elevation-z3">
       <button mat-icon-button (click)="sidenav.toggle()" aria-label="Toggle sidenav">
         <mat-icon>menu</mat-icon>
@@ -109,19 +109,31 @@
      
      
     </mat-toolbar>
-<app-slider></app-slider>
+<app-slider *ngIf="Role != 'Admin'"></app-slider>
 
     <!-- Main page content -->
-<div class="container">
+<div class="container"  *ngIf="Role != 'Admin'">
   <h1>Latest Products</h1>
   <app-product [Produkti]="latestproduct" ></app-product>
 
 </div>
 
+<div class="graphics-conteiner">
+  <div class="pie-graphic" >
+    <app-pie-chart></app-pie-chart>
+  
+    <app-app-monthly-orders-chart></app-app-monthly-orders-chart>
+  
+  
+  </div>
+</div>
+
+
+
   <hr>
 
 
-<div class="content2">
+<div class="content2" *ngIf="Role != 'Admin'">
   <h2>About Us</h2>
 <div class="inner-content">
   <img src="https://media.licdn.com/dms/image/C4D12AQE7_sVP5NvXoA/article-cover_image-shrink_720_1280/0/1520110596092?e=2147483647&v=beta&t=t8T7f7Eom1ZZbXf7Och_RKlmh4z_icPvf0-M0RQsr14" alt="">
