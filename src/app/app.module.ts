@@ -37,6 +37,10 @@ import {FormsModule} from '@angular/forms';
 import { AuthInterceptorService } from './core/Services/auth.interceptor.service';
 import { PieChartComponent } from './Components/pie-chart/pie-chart.component';
 import { AppMonthlyOrdersChartComponent } from './Components/app-monthly-orders-chart/app-monthly-orders-chart.component';
+import { UsersComponent } from './Admin/users/users.component';
+import { CategorysComponent } from './Admin/categorys/categorys.component';
+import { OrdersComponent } from './Admin/orders/orders.component';
+import { MessagesComponent } from './Admin/messages/messages.component';
 
 
 
@@ -52,8 +56,12 @@ import { AppMonthlyOrdersChartComponent } from './Components/app-monthly-orders-
     CartComponent,
     FavoriteProductsComponent,
     PurchasedProductsComponent,
-    PieChartComponent,
-    AppMonthlyOrdersChartComponent,
+    // PieChartComponent,
+    // AppMonthlyOrdersChartComponent,
+    UsersComponent,
+    CategorysComponent,
+    OrdersComponent,
+    MessagesComponent,
     
     
     

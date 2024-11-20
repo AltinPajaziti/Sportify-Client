@@ -4,8 +4,7 @@ import { Chart } from 'chart.js';
 @Component({
   selector: 'app-app-monthly-orders-chart',
   templateUrl: './app-monthly-orders-chart.component.html',
-  styleUrls: ['./app-monthly-orders-chart.component.css'],
-  standalone: false
+  styleUrls: ['./app-monthly-orders-chart.component.css']
 })
 
 export class AppMonthlyOrdersChartComponent {

@@ -17,6 +17,8 @@ const routes: Routes = [
     {path:'PurchasedProducts' , component: PurchasedProductsComponent },
     { path : 'Favorite' , component : FavoriteProductsComponent},
     { path: 'auth', loadChildren: () => import('../app/modules/auth/auth/auth.module').then(m => m.AuthModule) },
+    { path: 'admin', loadChildren: () => import('../app/Admin/admin/admin.module').then(m => m.AdminModule) },
+
 
   ]},
 

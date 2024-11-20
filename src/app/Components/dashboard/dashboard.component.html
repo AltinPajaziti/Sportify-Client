@@ -1,7 +1,7 @@
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
 
-
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
 
 <mat-sidenav-container class="example-container">
@@ -118,19 +118,46 @@
 
 </div>
 
-<div class="graphics-conteiner">
-  <div class="pie-graphic" >
-    <app-pie-chart></app-pie-chart>
-  
-    <app-app-monthly-orders-chart></app-app-monthly-orders-chart>
-  
-  
+<!-- <div class="menycontainer" *ngIf="Role != 'User'">
+  <div class="menysmallcontainer">
+    <div class="icon-container"><i class="fa fa-users"></i></div>
+    <h3>2500</h3>
+    <p>Welcome</p>
+  </div>
+  <div class="menysmallcontainer">
+    <div class="icon-container"><i class="fa fa-clock"></i></div>
+    <h3>123.50</h3>
+    <p>Average Time</p>
+  </div>
+  <div class="menysmallcontainer">
+    <div class="icon-container"><i class="fa fa-cloud-download"></i></div>
+    <h3>1,805</h3>
+    <p>Orders</p>
+  </div>
+  <div class="menysmallcontainer">
+    <div class="icon-container"><i class="fa fa-comments"></i></div>
+    <h3>54</h3>
+    <p>Comments</p>
   </div>
 </div>
 
-
-
+<div class="graphics-conteiner" *ngIf="Role != 'User'">
+  <h2 style="text-align: left; font-size: 24px; color: #343a40; font-weight: 600; margin-bottom: 15px;padding: 10px;">Graphics Data</h2>
   <hr>
+  <div class="pie-graphic">
+    <app-pie-chart></app-pie-chart>
+    <app-app-monthly-orders-chart></app-app-monthly-orders-chart>
+  </div>
+</div> -->
+
+
+
+
+
+
+
+
+
 
 
 <div class="content2" *ngIf="Role != 'Admin'">
@@ -147,34 +174,7 @@
 <!-- Footer -->
 <footer class="text-center text-lg-start bg-body-tertiary text-muted">
   <!-- Section: Social media -->
-  <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
-    <!-- Left -->
-  
-    <!-- Left -->
 
-    <!-- Right -->
-    <div>
-      <a href="" class="me-4 text-reset">
-        <i class="fab fa-facebook-f"></i>
-      </a>
-      <a href="" class="me-4 text-reset">
-        <i class="fab fa-twitter"></i>
-      </a>
-      <a href="" class="me-4 text-reset">
-        <i class="fab fa-google"></i>
-      </a>
-      <a href="" class="me-4 text-reset">
-        <i class="fab fa-instagram"></i>
-      </a>
-      <a href="" class="me-4 text-reset">
-        <i class="fab fa-linkedin"></i>
-      </a>
-      <a href="" class="me-4 text-reset">
-        <i class="fab fa-github"></i>
-      </a>
-    </div>
-    <!-- Right -->
-  </section>
   <!-- Section: Social media -->
 
   <!-- Section: Links  -->

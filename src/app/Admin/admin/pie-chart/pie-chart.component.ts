@@ -1,13 +1,10 @@
-import { Component, AfterViewInit, ElementRef, ViewChild } from '@angular/core';
-import { Chart, ChartType, registerables } from 'chart.js';
-
-Chart.register(...registerables); // Register required Chart.js components
+import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
+import { Chart, ChartType } from 'chart.js';
 
 @Component({
   selector: 'app-pie-chart',
   templateUrl: './pie-chart.component.html',
-  styleUrls: ['./pie-chart.component.css'],
-  standalone: false
+  styleUrls: ['./pie-chart.component.css']
 })
 export class PieChartComponent implements AfterViewInit {
   @ViewChild('pieCanvas') pieCanvas!: ElementRef<HTMLCanvasElement>; // Reference to the canvas
