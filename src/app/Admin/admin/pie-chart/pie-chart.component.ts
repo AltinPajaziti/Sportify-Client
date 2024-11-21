@@ -1,5 +1,10 @@
-import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
-import { Chart, ChartType } from 'chart.js';
+
+
+import { Component, AfterViewInit, ElementRef, ViewChild } from '@angular/core';
+import { Chart, ChartType, registerables } from 'chart.js';
+
+Chart.register(...registerables); 
+
 
 @Component({
   selector: 'app-pie-chart',

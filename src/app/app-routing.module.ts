@@ -22,7 +22,7 @@ const routes: Routes = [
 
   ]},
 
-  { path: 'login', redirectTo: 'auth/login', pathMatch: 'full' }, 
+  // { path: 'login', redirectTo: 'auth/login', pathMatch: 'full' }, 
   { path: 'register', redirectTo: 'auth/register', pathMatch: 'full' }, 
  
   // { path: '**', redirectTo: 'auth/login' }

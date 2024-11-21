@@ -2,10 +2,10 @@ import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { BehaviorSubject } from 'rxjs';
-import { AuthenticationService } from 'src/app/core/Services/authentication.service';
-import type { LoginUser } from 'src/app/core/constants/Interfaces/LoginUser'; // Import `LoginUser` as a type
 import Swal from 'sweetalert2';
+import { AuthenticationService } from 'src/app/core/Services/authentication.service';
+import type { LoginUser } from 'src/app/core/constants/Interfaces/LoginUser';
+import { BehaviorSubject } from 'rxjs';
 
 @Component({
   selector: 'app-login',
@@ -13,9 +13,8 @@ import Swal from 'sweetalert2';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
+  form: FormGroup;
 
-  form!: FormGroup;
- 
   constructor(
     private fb: FormBuilder,
     private auth: AuthenticationService,
@@ -28,35 +27,55 @@ export class LoginComponent {
     });
   }
 
-  submit() {
+  submit(): void {
+    if (this.form.invalid) {
+      Swal.fire({
+        icon: 'warning',
+        title: 'Validation Error',
+        text: 'Please fill out all required fields.'
+      });
+      return;
+    }
+
     const { username, password } = this.form.value;
 
     this.auth.login(username, password).subscribe({
       next: (response: LoginUser) => {
-
-        console.log("here is " , response)
         if (response.status !== 'ok') {
           Swal.fire({
-            icon: "error",
-            title: "Oops...",
-            text: "Wrong username or password",
+            icon: 'error',
+            title: 'Oops...',
+            text: 'Wrong username or password',
             footer: '<a href="#">Why do I have this issue?</a>'
           });
-          this.router.navigate(['/login']);
           return;
         }
 
-        // Store user details in localStorage
+        // Log response for debugging
+        console.log("Response:", response);
+
+        // Navigate based on user role
+
+        const userRole = response.role;
+        if (userRole === 'Admin') {
+          console.log("the user is admin")
+          this.router.navigate(['/admin/dashboard']);
+        } else if (userRole === 'User') {
+          console.log("the user is user")
+          this.router.navigate(['']);
+        }
+
+        // Store user details in local storage
         localStorage.setItem('Username', response.username);
         localStorage.setItem('Token', response.token);
         localStorage.setItem('Role', response.role);
-        localStorage.setItem('Refreshtoken' , response.refreshToken);
+        localStorage.setItem('Refreshtoken', response.refreshToken);
         localStorage.setItem('TokenExpires', response.tokenExpires);
 
-        this.auth.isloggedin.next(true)
+        // Notify authentication state
+        this.auth.isloggedin.next(true);
 
-
-        // Navigate to home (or another desired route)
+        // Redirect to home
         this.router.navigate(['']);
       },
       error: (err) => {
@@ -66,7 +85,6 @@ export class LoginComponent {
           title: 'Login Failed',
           text: 'Please check your credentials and try again.'
         });
-        this.router.navigate(['/login']);
       }
     });
   }
