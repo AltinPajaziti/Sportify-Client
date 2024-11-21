@@ -7,25 +7,21 @@ import { MainLayoutComponentComponent } from './Layout/main-layout-component/mai
 import { CartComponent } from './Components/cart/cart.component';
 import { FavoriteProductsComponent } from './Components/favorite-products/favorite-products.component';
 import { PurchasedProductsComponent } from './Components/purchased-products/purchased-products.component';
-
 const routes: Routes = [
   { path: '', component: DashboardComponent }, 
-  
-    {path:'' , component: MainLayoutComponentComponent , children:[
-    {path:'products' , component: ProductsComponent },
-    {path:'Cart' , component: CartComponent },
-    {path:'PurchasedProducts' , component: PurchasedProductsComponent },
-    { path : 'Favorite' , component : FavoriteProductsComponent},
-    { path: 'auth', loadChildren: () => import('../app/modules/auth/auth/auth.module').then(m => m.AuthModule) },
-    { path: 'admin', loadChildren: () => import('../app/Admin/admin/admin.module').then(m => m.AdminModule) },
 
+  {
+    path: '', component: MainLayoutComponentComponent, children: [
+      { path: 'products', component: ProductsComponent },
+      { path: 'Cart', component: CartComponent },
+      { path: 'PurchasedProducts', component: PurchasedProductsComponent },
+      { path: 'Favorite', component: FavoriteProductsComponent },
+      { path: 'auth', loadChildren: () => import('../app/modules/auth/auth/auth.module').then(m => m.AuthModule) },
+      { path: 'admin', loadChildren: () => import('../app/Admin/admin.module').then(m => m.AdminModule) },
+    ]
+  },
 
-  ]},
-
-  // { path: 'login', redirectTo: 'auth/login', pathMatch: 'full' }, 
   { path: 'register', redirectTo: 'auth/register', pathMatch: 'full' }, 
- 
-  // { path: '**', redirectTo: 'auth/login' }
 ];
 
 @NgModule({

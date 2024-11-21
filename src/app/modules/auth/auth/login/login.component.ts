@@ -65,7 +65,7 @@ export class LoginComponent {
           this.router.navigate(['']);
         }
 
-        // Store user details in local storage
+        // Store user details in local storagep
         localStorage.setItem('Username', response.username);
         localStorage.setItem('Token', response.token);
         localStorage.setItem('Role', response.role);

@@ -57,6 +57,7 @@ import { MessagesComponent } from './Admin/messages/messages.component';
     FavoriteProductsComponent,
     PurchasedProductsComponent,
     // PieChartComponent,
+    
     // AppMonthlyOrdersChartComponent,
     UsersComponent,
     CategorysComponent,
