@@ -1,28 +1,28 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { DashboardComponent } from './Components/dashboard/dashboard.component';
-import { ProductComponent } from './Components/product/product.component';
-import { ProductsComponent } from './Components/products/products.component';
 import { MainLayoutComponentComponent } from './Layout/main-layout-component/main-layout-component.component';
-import { CartComponent } from './Components/cart/cart.component';
-import { FavoriteProductsComponent } from './Components/favorite-products/favorite-products.component';
-import { PurchasedProductsComponent } from './Components/purchased-products/purchased-products.component';
+
 const routes: Routes = [
-  { path: '', component: DashboardComponent }, 
-
   {
-    path: '', component: MainLayoutComponentComponent, children: [
-      { path: 'products', component: ProductsComponent },
-      { path: 'Cart', component: CartComponent },
-      { path: 'PurchasedProducts', component: PurchasedProductsComponent },
-      { path: 'Favorite', component: FavoriteProductsComponent },
-      { path: 'admin', loadChildren: () => import('../app/Admin/admin.module').then(m => m.AdminModule) },
-
-      { path: 'auth', loadChildren: () => import('../app/modules/auth/auth/auth.module').then(m => m.AuthModule) },
-    ]
+    path: 'admin',
+    loadChildren: () => import('./Admin/admin.module').then(m => m.AdminModule)
   },
 
-  { path: 'register', redirectTo: 'auth/register', pathMatch: 'full' }, 
+  {
+    path: 'auth', 
+    loadChildren: () => import('../app/modules/auth/auth/auth.module').then(m => m.AuthModule),
+  },
+
+  {
+    path: 'user',
+    loadChildren: () => import('../app/User/user/user.module').then(m => m.UserModule)
+  },
+  
+  { path: '', redirectTo: '/user', pathMatch: 'full' },
+  { path: 'register', redirectTo: 'auth/register', pathMatch: 'full' },
+
+  // Optional wildcard route to handle unmatched routes:
+   { path: '**', redirectTo: '', pathMatch: 'full' }
 ];
 
 @NgModule({

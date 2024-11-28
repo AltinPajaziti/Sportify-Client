@@ -22,8 +22,8 @@ export  interface Favorite{
 }
 @Component({
   selector: 'app-product',
-  templateUrl: './product.component.html',
-  styleUrls: ['./product.component.css']
+  templateUrl: '../product/product.component.html',
+  styleUrls: ['../product/product.component.css']
 })
 export class ProductComponent   {
   @Input() Produkti!: Product[];  // This will hold the input value

@@ -2,10 +2,15 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { OrdersComponent } from './orders/orders.component';
+import { AdminLeyoutComponent } from './admin-leyout/admin-leyout.component';
 
 const routes: Routes = [
-  { path: 'dashboard', component: DashboardComponent },
-  {path: 'orders' , component : OrdersComponent}
+  {
+    path: '', component: AdminLeyoutComponent, children: [
+      { path: '', component: DashboardComponent },
+      { path: 'orders', component: OrdersComponent }
+    ]
+  }
 ];
 
 @NgModule({

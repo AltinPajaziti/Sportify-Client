@@ -17,11 +17,10 @@ interface Product {
 
 
 
-
 @Component({
   selector: 'app-cart',
-  templateUrl: './cart.component.html',
-  styleUrls: ['./cart.component.css']
+  templateUrl: '../cart/cart.component.html',
+  styleUrls: ['../cart/cart.component.css']
 })
 
 export class CartComponent {

@@ -3,6 +3,7 @@ import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { CartService } from 'src/app/core/Services/cart.service';
 import Swal from 'sweetalert2';
 
+
 interface ProductData {
   name: string;
   description: string;
@@ -13,8 +14,8 @@ interface ProductData {
 
 @Component({
   selector: 'app-product-dialog',
-  templateUrl: './product-dialog.component.html',
-  styleUrls: ['./product-dialog.component.css']
+  templateUrl: '../product-dialog/product-dialog.component.html',
+  styleUrls: ['../product-dialog/product-dialog.component.css']
 })
 export class ProductDialogComponent {
 public quantity = 0;

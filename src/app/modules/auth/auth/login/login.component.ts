@@ -59,10 +59,10 @@ export class LoginComponent {
         const userRole = response.role;
         if (userRole === 'Admin') {
           console.log("the user is admin")
-          // this.router.navigate(['/admin/dashboard']);
-          this.router.navigateByUrl('/admin/dashboard');
+          this.router.navigate(['/admin']);
+         // this.router.navigateByUrl('/admin/dashboard');
           //should implement an authguard to redirect here 
-          // window.location.replace('/admin/dashboard');
+          //  window.location.replace('/admin/dashboard');
 
         } else if (userRole === 'User') {
           console.log("the user is user")

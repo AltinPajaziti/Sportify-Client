@@ -5,11 +5,10 @@ import { Product } from 'src/app/core/constants/Interfaces/Product';
 import { Subscription } from 'rxjs';
 import { CartService } from 'src/app/core/Services/cart.service';
 import  { AuthenticationService } from 'src/app/core/Services/authentication.service';
-
 @Component({
   selector: 'app-dashboard',
-  templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.css']
+  templateUrl: '../dashboard/dashboard.component.html',
+  styleUrls: ['../dashboard/dashboard.component.css']
 })
 export class DashboardComponent implements OnInit{
 
