@@ -5,7 +5,7 @@ import { MainLayoutComponentComponent } from './Layout/main-layout-component/mai
 const routes: Routes = [
   {
     path: 'admin',
-    loadChildren: () => import('./Admin/admin.module').then(m => m.AdminModule)
+    loadChildren: () => import('../app/Admin/admin/admin.module').then(m => m.AdminModule)
   },
 
   {
@@ -22,7 +22,7 @@ const routes: Routes = [
   { path: 'register', redirectTo: 'auth/register', pathMatch: 'full' },
 
   // Optional wildcard route to handle unmatched routes:
-   { path: '**', redirectTo: '', pathMatch: 'full' }
+  // { path: '**', redirectTo: '', pathMatch: 'full' }
 ];
 
 @NgModule({
