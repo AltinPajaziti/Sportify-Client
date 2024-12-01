@@ -4,6 +4,7 @@ import { AdminLeyoutComponent } from '../Components/admin-leyout/admin-leyout.co
 import { DashboardComponent } from '../Components/dashboard/dashboard.component';
 import { OrdersComponent } from '../Components/orders/orders.component';
 import { CategorysComponent } from '../Components/categorys/categorys.component';
+import { UsersComponent } from '../Components/users/users.component';
 
 
 const routes: Routes = [
@@ -11,7 +12,8 @@ const routes: Routes = [
     path: '', component: AdminLeyoutComponent, children: [
       { path: '', component: DashboardComponent },      // Dashboard route when you visit /admin
       { path: 'orders', component: OrdersComponent }    ,
-      {path : 'Category' , component: CategorysComponent}
+      {path : 'Category' , component: CategorysComponent},
+      {path : 'users' , component : UsersComponent}
     ]
   }
 ];
