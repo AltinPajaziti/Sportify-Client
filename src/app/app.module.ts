@@ -29,6 +29,7 @@ import { AuthModule } from './modules/auth/auth/auth.module';
 import { UserModule } from './User/user/user.module';
 import { UserLeyoutComponent } from './User/Components/user-leyout/user-leyout.component';
 import { TestComponent } from './Admin/Components/admin-leyout/test/test.component';
+import { StockManagmentComponent } from './Admin/Components/stock-managment/stock-managment.component';
 
 
 
@@ -40,6 +41,7 @@ import { TestComponent } from './Admin/Components/admin-leyout/test/test.compone
     AppComponent,
                 UserLeyoutComponent,
                 TestComponent,
+                StockManagmentComponent,
                 
     
     

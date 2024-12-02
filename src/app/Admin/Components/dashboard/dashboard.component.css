@@ -92,4 +92,6 @@
   .menysmallcontainer:nth-child(4) .icon-container {
     background-color: rgba(220, 53, 69, 0.3); /* Red */
   }
-  
+  .menysmallcontainer{
+    cursor: pointer;
+  }

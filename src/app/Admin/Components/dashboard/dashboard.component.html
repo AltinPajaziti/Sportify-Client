@@ -6,24 +6,24 @@
 <div class="menycontainer" >
     <div class="menysmallcontainer"  [routerLink]="['orders']">
       <div class="icon-container"  >
-        <i class="fa fa-users" ></i></div>
+        <i class="fa fa-cloud-download" ></i></div>
       <h3>2500</h3>
       <p>Orders</p>
     </div> 
-    <div class="menysmallcontainer">
-      <div class="icon-container"><i class="fa fa-clock"></i></div>
+    <div class="menysmallcontainer" [routerLink]="['StockManagment']">
+      <div class="icon-container"><i class="fa fas fa-box"></i></div>
     <h3>123.50</h3>
-      <p>Average Time</p>
+      <p>Stock Managment</p>
     </div>
-    <div class="menysmallcontainer">
-      <div class="icon-container"><i class="fa fa-cloud-download" [routerLink]="['users']"></i></div>
+    <div class="menysmallcontainer"[routerLink]="['users']">
+      <div class="icon-container"><i class="fa fa-users" ></i></div>
       <h3>1,805</h3>
       <p>Users</p>
     </div>
-    <div class="menysmallcontainer">
-      <div class="icon-container"><i class="fa fa-comments"></i></div>
+    <div class="menysmallcontainer" [routerLink]="['Category']">
+      <div class="icon-container" ><i class="fa fas fa-list"></i></div>
       <h3>54</h3>
-      <p>Messages</p>
+      <p>Category</p>
     </div>
   </div>
   
