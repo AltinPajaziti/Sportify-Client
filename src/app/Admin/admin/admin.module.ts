@@ -30,6 +30,9 @@ import { MessagesComponent } from '../Components/messages/messages.component';
 import { OrdersComponent } from '../Components/orders/orders.component';
 import { UsersComponent } from '../Components/users/users.component';
 import { PieChartComponent } from '../Components/Charts/pie-chart/pie-chart.component';
+import { MatPaginatorModule} from '@angular/material/paginator';
+import { StockManagmentComponent } from '../Components/stock-managment/stock-managment.component';
+import { StockDialogComponent } from '../Components/Dialogs/stock-managment/stock-dialog/stock-dialog.component';
 
 
 
@@ -42,7 +45,9 @@ import { PieChartComponent } from '../Components/Charts/pie-chart/pie-chart.comp
     UsersComponent,
     MessagesComponent,
     CategorysComponent,
-    AdminLeyoutComponent
+    AdminLeyoutComponent,
+    StockManagmentComponent,
+    StockDialogComponent
   ],
   imports: [
     
@@ -69,7 +74,14 @@ import { PieChartComponent } from '../Components/Charts/pie-chart/pie-chart.comp
        MatInputModule,
        MatSelectModule,
        ReactiveFormsModule,
-       RouterModule
+       RouterModule,
+       MatTableModule,
+      
+       MatTableModule, 
+       MatPaginatorModule,
+       
+       
+
   ]
 })
 export class AdminModule { }
