@@ -4,7 +4,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { ProductsService } from 'src/app/core/Services/products.service';
 import { StockMAnagmentSErviceService } from 'src/app/core/Services/stock-managment-service.service';
 import { StockDialogComponent } from '../Dialogs/stock-managment/stock-dialog/stock-dialog.component';
-import { MatDialog } from '@angular/material/dialog';
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 
 export interface PeriodicElement {
   name: string;
