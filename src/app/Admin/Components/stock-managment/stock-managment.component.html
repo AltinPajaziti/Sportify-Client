@@ -36,7 +36,10 @@
       
       <ng-container matColumnDef="OutofStock">
         <th mat-header-cell *matHeaderCellDef> Out of Stock </th>
-        <td mat-cell *matCellDef="let element"><button mat-raised-button color="warn">Out of Stock</button>
+        <td mat-cell *matCellDef="let element"><button mat-raised-button color="warn" *ngIf="element.quantity <=1">Out of Stock</button>
+
+
+          <button mat-raised-button color="primary" *ngIf="element.quantity >1 ">In Stock</button>
         </td>
       </ng-container>
   

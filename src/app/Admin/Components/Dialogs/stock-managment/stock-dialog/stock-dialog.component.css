@@ -16,3 +16,7 @@
   justify-content: flex-end;
   gap: 8px;
 }
+
+td , th{
+  text-align: center;
+}

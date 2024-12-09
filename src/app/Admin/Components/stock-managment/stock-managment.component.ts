@@ -23,7 +23,7 @@ export class StockManagmentComponent implements AfterViewInit , OnInit {
 
 
 
-  constructor(private stockSErvice : StockMAnagmentSErviceService ,    private dialog: MatDialog
+  constructor(private stockSErvice : StockMAnagmentSErviceService ,    private dialog: MatDialog , private stock : StockMAnagmentSErviceService
   ) {
 
     
@@ -40,16 +40,13 @@ export class StockManagmentComponent implements AfterViewInit , OnInit {
   }
 
   openPopup(): void {
-    // Open the dialog
     const dialogRef = this.dialog.open(StockDialogComponent, {
       width: '500px'
     });
 
-    // Handle the dialog result
     dialogRef.afterClosed().subscribe((result) => {
       if (result) {
         console.log('Dialog result:', result);
-        // Optionally refresh or update the stock data here
       }
     });
   }
