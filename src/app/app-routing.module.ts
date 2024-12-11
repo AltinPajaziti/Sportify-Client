@@ -1,21 +1,27 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { MainLayoutComponentComponent } from './Layout/main-layout-component/main-layout-component.component';
+import { AuthGuard } from './core/Guards/AuthGuard';
+import { AdminGuard } from './core/Guards/AdminGuard';
 
 const routes: Routes = [
   {
     path: 'admin',
-    loadChildren: () => import('../app/Admin/admin/admin.module').then(m => m.AdminModule)
-  },
+    loadChildren: () => import('../app/Admin/admin/admin.module').then(m => m.AdminModule),
+    canActivate: [AdminGuard]
+
+  }, 
 
   {
-    path: 'auth', 
-    loadChildren: () => import('../app/modules/auth/auth/auth.module').then(m => m.AuthModule),
+    path: '', 
+    loadChildren: () => import('../app/auth/auth.module').then(m => m.AuthModule),
   },
 
   {
     path: 'user',
-    loadChildren: () => import('../app/User/user/user.module').then(m => m.UserModule)
+    loadChildren: () => import('../app/User/user/user.module').then(m => m.UserModule),
+    canActivate: [AuthGuard]
+
   },
   
   { path: '', redirectTo: '/user', pathMatch: 'full' },

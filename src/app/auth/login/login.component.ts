@@ -54,19 +54,16 @@ export class LoginComponent {
         // Log response for debugging
         console.log("Response:", response);
 
-        // Navigate based on user role
 
         const userRole = response.role;
-        if (userRole === 'Admin') {
-          console.log("the user is admin")
-          this.router.navigate(['/admin']);
-         // this.router.navigateByUrl('/admin/dashboard');
-          //should implement an authguard to redirect here 
-          //  window.location.replace('/admin/dashboard');
-
-        } else if (userRole === 'User') {
-          console.log("the user is user")
-          this.router.navigate(['']);
+        if (userRole == 'Admin') {
+          setTimeout(() => {
+            this.router.navigateByUrl('/admin');
+          }, 0); 
+        } else if (userRole == 'User') {
+          setTimeout(() => {
+            this.router.navigate(['']);
+          }, 0);
         }
 
         // Store user details in local storagep
