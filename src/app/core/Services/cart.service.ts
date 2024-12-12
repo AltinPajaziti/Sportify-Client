@@ -38,7 +38,7 @@ export class CartService {
   
 
   getItems() {
-    const shporta = localStorage.getItem("zz");
+    const shporta = localStorage.getItem("shporta");
 
     if (shporta) {
       const basket: Product[] = JSON.parse(shporta);

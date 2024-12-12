@@ -25,7 +25,7 @@
               <span>Home</span>
             </div>
           </mat-list-item>
-          <mat-list-item [routerLink]="['Cart']">
+          <mat-list-item [routerLink]="['/Cart']">
             <div class="smallcontainer">
               <mat-icon>shopping_cart</mat-icon>
               <span>Cart</span>
@@ -78,7 +78,7 @@
         <span>Products</span>
       </button>
       
-        <button mat-icon-button [routerLink]="['Cart']">
+        <button mat-icon-button [routerLink]="['/Cart']">
           <mat-icon [matBadge]="totalQuantity" matBadgeOverlap="false" class="demo-section"  routerLink="Cart" >shopping_cart</mat-icon>
         </button>
   
