@@ -142,4 +142,115 @@
   .sidebar {
     flex: 1 0 auto;
   }
+
+  .example-sidenav {
+    position: absolute;
+    width: 100%;
+  }
+
+  mat-sidenav {
+    width: 70%; /* Zë vetëm 70% të gjerësisë */
+    max-width: 300px; /* Kufizo gjerësinë maksimale */
+  }
+  .mat-drawer-backdrop {
+    background-color: rgba(0, 0, 0, 0.5); /* Shton efekt për sfond */
+  }
+
+
+  mat-sidenav {
+    width: 100%;
+  }
+  mat-sidenav-content {
+    margin-left: 0;
+  }
+
+
+  footer .row > div {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+  .extraitems{
+    display: none !important;
+  }
+
+  
+}
+
+
+/* Tablet screens */
+@media (max-width: 1024px) {
+  .layout-container {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    flex: 1 0 auto;
+  }
+
+  .example-sidenav {
+    position: absolute;
+    width: 100%;
+  }
+
+  mat-sidenav {
+    width: 60%; /* Slightly smaller sidenav for tablets */
+    max-width: 300px; /* Maintain max width */
+  }
+
+  mat-sidenav-content {
+    margin-left: 0;
+  }
+
+  footer .row > div {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+
+  .extraitems {
+    display: block ; /* Show extra items again on large screens */
+  }
+
+
+  .mat-drawer-backdrop {
+    background-color: rgba(0, 0, 0, 0.5); /* Add backdrop effect */
+  }
+}
+
+
+/* Large screens */
+@media (min-width: 1025px) {
+  .layout-container {
+    flex-direction: row; /* Multi-column layout */
+  }
+
+  .sidebar {
+    flex: 1;
+  }
+
+  .example-sidenav {
+    position: static;
+    width: auto;
+  }
+
+  mat-sidenav {
+    width: 25%; /* More compact sidenav for larger screens */
+    max-width: 350px; /* Optionally set a maximum width */
+  }
+
+  mat-sidenav-content {
+    margin-left: 0;
+  }
+
+  footer .row > div {
+    flex: 1;
+    max-width: 100%;
+  }
+
+  .extraitems {
+    display: block; /* Show extra items again on large screens */
+  }
+
+  .mat-drawer-backdrop {
+    background-color: rgba(0, 0, 0, 0.5); /* Add backdrop effect */
+  }
 }

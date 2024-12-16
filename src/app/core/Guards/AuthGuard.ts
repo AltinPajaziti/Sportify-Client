@@ -6,7 +6,7 @@ export const AuthGuard: CanActivateFn = (route, state) => {
   const router = inject(Router);
     console.log("roli" , role)
   // Check if the user is logged in (has a valid role)
-  if (role === 'Admin' || role === 'User') {
+  if (role === 'User') {
     console.log("here")
     // Redirect to home or another route if already logged in
     router.navigate(['/']); // Redirect to your desired route

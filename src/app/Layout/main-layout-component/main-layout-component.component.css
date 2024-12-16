@@ -142,4 +142,25 @@
   .sidebar {
     flex: 1 0 auto;
   }
+
+
+  .logo {
+    font-size: 1.2rem;
+  }
+
+  .example-spacer {
+    display: none;
+  }
+
+  mat-toolbar {
+    padding: 10px 5px;
+  }
+
+  .mat-button, .mat-icon-button {
+    font-size: 1.2rem;
+  }
+
+  .mat-toolbar button {
+    padding: 0;
+  }
 }
