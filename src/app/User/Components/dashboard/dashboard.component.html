@@ -11,8 +11,11 @@
 
   
   <!-- Main content with toolbar -->
+   <div class="sllajderi">
+    <app-slider *ngIf="Role != 'Admin'"></app-slider>
 
-<app-slider *ngIf="Role != 'Admin'"></app-slider>
+   </div>
+
 
     <!-- Main page content -->
 <div class="container"  *ngIf="Role != 'Admin'">
@@ -63,13 +66,16 @@
 
 
 <div class="content2" *ngIf="Role != 'Admin'">
-  <h2>About Us</h2>
-<div class="inner-content">
-  <img src="https://media.licdn.com/dms/image/C4D12AQE7_sVP5NvXoA/article-cover_image-shrink_720_1280/0/1520110596092?e=2147483647&v=beta&t=t8T7f7Eom1ZZbXf7Och_RKlmh4z_icPvf0-M0RQsr14" alt="">
-  <p> Lorem, ipsum dolor sit amet consectetur adipisicing elit. Delectus praesentium sit ducimus possimus, necessitatibus quisquam officia quasi cumque quam blanditiis! Dolorum dolor sapiente consequatur? Dignissimos natus consequatur sint consequuntur quo.
-    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Earum temporibus tempora architecto, reprehenderit voluptas totam quas quibusdam unde sunt natus neque atque deleniti illo ducimus necessitatibus nostrum quos velit cum.</p>
+  
+  <div class="Theinnercontent">
+    <div class="inner-content">
+      <img src="https://media.licdn.com/dms/image/C4D12AQE7_sVP5NvXoA/article-cover_image-shrink_720_1280/0/1520110596092?e=2147483647&v=beta&t=t8T7f7Eom1ZZbXf7Och_RKlmh4z_icPvf0-M0RQsr14" alt="">
+      <p> Lorem, ipsum dolor sit amet consectetur adipisicing elit. Delectus praesentium sit ducimus possimus, necessitatibus quisquam officia quasi cumque quam blanditiis! Dolorum dolor sapiente consequatur? Dignissimos natus consequatur sint consequuntur quo.
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Earum temporibus tempora architecto, reprehenderit voluptas totam quas quibusdam unde sunt natus neque atque deleniti illo ducimus necessitatibus nostrum quos velit cum.</p>
+    
+    </div>
+  </div>
 
-</div>
 </div>
 
 

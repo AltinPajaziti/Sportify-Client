@@ -107,6 +107,15 @@
   gap: 16px;
 }
 
+.extraelements{
+  width: 1550px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;;
+}
+
+
 /* Filter Form Styling */
 .sidebar form {
   display: flex;
@@ -131,6 +140,11 @@
 
 .sidebar form button:hover {
   background-color: #0056b3; /* Darker shade on hover */
+}
+.extraitems{
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 /* Responsive Layout Adjustments */
@@ -174,6 +188,11 @@
   }
 
   
+}
+
+
+mat-toolbar{
+  margin: 0 auto !important;
 }
 
 

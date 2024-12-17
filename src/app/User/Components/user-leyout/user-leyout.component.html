@@ -64,34 +64,32 @@
 
   <!-- Main content with toolbar -->
   <mat-sidenav-content>
+    
     <mat-toolbar class="mat-elevation-z3">
-      <button mat-icon-button (click)="sidenav.toggle()" aria-label="Toggle sidenav">
-        <mat-icon>menu</mat-icon>
-      </button>
-      <mat-icon>shopping_cart</mat-icon>
-      <span routerLink="" style="cursor: pointer;">Sportify</span>
-      <span class="example-spacer"></span>
-    <div class="extraitems">
-           
-      <button mat-button [routerLink]="['/products']">
-        <mat-icon>category</mat-icon>
-        <span>Products</span>
-      </button>
-      
-        <button mat-icon-button [routerLink]="['/Cart']">
-          <mat-icon [matBadge]="totalQuantity" matBadgeOverlap="false" class="demo-section"  routerLink="Cart" >shopping_cart</mat-icon>
+      <div class="extraelements">
+        <button mat-icon-button (click)="sidenav.toggle()" aria-label="Toggle sidenav">
+          <mat-icon>menu</mat-icon>
         </button>
-  
-        <button mat-icon-button [routerLink]="['/purchased-products']">
-          
-          <mat-icon  matBadgeOverlap="false" class="demo-section" 
-          >description</mat-icon>
+        <mat-icon>shopping_cart</mat-icon>
+        <span routerLink="" style="cursor: pointer;">Sportify</span>
+        <span class="example-spacer"></span>
+      <div class="extraitems">
+             
+        <button mat-button [routerLink]="['/products']">
+          <mat-icon>category</mat-icon>
+          <span>Products</span>
         </button>
-    </div>
-   
-
-
-
+        
+          <button mat-icon-button [routerLink]="['/Cart']">
+            <mat-icon [matBadge]="totalQuantity" matBadgeOverlap="false" class="demo-section"  routerLink="Cart" >shopping_cart</mat-icon>
+          </button>
+    
+          <button mat-icon-button [routerLink]="['/purchased-products']">
+            
+            <mat-icon  matBadgeOverlap="false" class="demo-section" 
+            >description</mat-icon>
+          </button>
+      </div>
 
       <button  mat-button [matMenuTriggerFor]="menu" >
         <mat-icon>person</mat-icon></button>
@@ -100,6 +98,14 @@
         <button *ngIf="!isloogediin"  mat-menu-item [routerLink]="['/login']" >Login</button>
         <button  *ngIf="!isloogediin" mat-menu-item  [routerLink]="['/register']">Register</button>
       </mat-menu>
+      </div>
+      
+   
+
+
+
+
+      
            
      
      

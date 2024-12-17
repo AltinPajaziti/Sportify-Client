@@ -16,3 +16,19 @@
     height: 400px;
     object-fit: cover; 
 }
+g-container{
+    background-color: black;
+}
+
+@media (min-width: 1025px) {
+    ngb-carousel{
+        width: 1550px;
+        display: flex;
+        justify-content: center !important;
+        margin: 0 auto;
+        background-color: black;
+
+    }
+  }
+
+

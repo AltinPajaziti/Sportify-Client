@@ -104,6 +104,13 @@
   flex-direction: row; 
   justify-content: center; 
 }
+.Theinnercontent{
+  width: 1550px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+}
 
 app-pie-chart, app-app-monthly-orders-chart {
   flex: 1; 
@@ -177,7 +184,9 @@ app-pie-chart, app-app-monthly-orders-chart {
 .menysmallcontainer:nth-child(4) .icon-container {
   background-color: rgba(220, 53, 69, 0.3); /* Red */
 }
-
+.sllajderi{
+  background-color: inherit;
+}
 
 @media (max-width: 768px) {
 
