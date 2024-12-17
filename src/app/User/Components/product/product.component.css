@@ -42,35 +42,44 @@ button:hover {
 }
 
 @media (max-width: 768px) {
-
-  .inner-content{
+  .inner-content {
     display: flex;
     flex-direction: column;
-    
   }
+
   .container {
     display: grid;
-    grid-template-columns: 1fr !important; /* Ensure one column */
+    grid-template-columns: 1fr !important; /* Ensure one column for small screens */
   }
 
-
-
-  
+  .container mat-card {
+    width: 250px;
+    margin: 0 auto;
+  }
 }
 
-  @media (max-width: 1024px) {
-    .container{
-      display: grid;
-      grid-template-columns: repeat(2,1fr);
-      gap: -10px  ;
-    }
-  
+/* Media query for screens between 600px and 1024px */
+@media (min-width: 600px) and (max-width: 1024px) {
+  .container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr) !important; /* Two columns for screens between 600px and 1024px */
+    gap: 10px; /* Positive gap for spacing */
   }
-  
+}
 
-  @media (min-width: 1025px) {
-    .container{
-      display: flex;
-      flex-direction: row;
-    }
+/* Media query for screens 600px and smaller */
+@media (max-width: 599px) {
+  .container {
+    display: grid;
+    grid-template-columns: 1fr; /* One column for very small screens */
+    gap: 10px; /* Positive gap for spacing */
   }
+}
+
+@media (min-width: 1025px) {
+  .container {
+    display: flex;
+    flex-direction: row;
+    gap: 10px; /* Optional: Add gap if necessary for larger screens */
+  }
+}
